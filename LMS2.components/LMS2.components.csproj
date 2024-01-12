@@ -1,0 +1,293 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9995CBC1-6F10-4AC3-9EFE-49436524F50A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LMS2.components</RootNamespace>
+    <AssemblyName>LMS2.components</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44347</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\NuevaVersion\packages\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DetailLayouts\811ReportDetail.xml" />
+    <Content Include="DetailLayouts\AllProfiles.xml" />
+    <Content Include="DetailLayouts\LogLocationDetail.xml" />
+    <Content Include="DetailLayouts\MyProfile.xml" />
+    <Content Include="DetailLayouts\PtPtAnalog.xml" />
+    <Content Include="DetailLayouts\PtPtAnalogHist.xml" />
+    <Content Include="DetailLayouts\PtPtDiscrete.xml" />
+    <Content Include="DetailLayouts\PtPtDiscreteHist.xml" />
+    <Content Include="DetailLayouts\PtPtFisherRoc.xml" />
+    <Content Include="DetailLayouts\PtPtFisherRocHist.xml" />
+    <Content Include="DetailLayouts\PtPtGeneral.xml" />
+    <Content Include="DetailLayouts\PtPtGeneralHist.xml" />
+    <Content Include="DetailLayouts\PtPtMercury.xml" />
+    <Content Include="DetailLayouts\PtPtMercuryHist.xml" />
+    <Content Include="DetailLayouts\PtPtString.xml" />
+    <Content Include="DetailLayouts\PtPtStringHist.xml" />
+    <Content Include="DetailLayouts\PtPtUnavailable.xml" />
+    <Content Include="DetailLayouts\ShiftHandoffEntering_FRN.xml" />
+    <Content Include="DetailLayouts\ShiftHandoffEntering_LPC.xml" />
+    <Content Include="DetailLayouts\ShiftHandoffEntering_WBI.xml" />
+    <Content Include="DetailLayouts\ShiftHandoffHist_FRN.xml" />
+    <Content Include="DetailLayouts\ShiftHandoffHist_LPC.xml" />
+    <Content Include="DetailLayouts\ShiftHandoffHist_WBI.xml" />
+    <Content Include="DetailLayouts\ShiftHandoffLeaving_FRN.xml" />
+    <Content Include="DetailLayouts\ShiftHandoffLeaving_LPC.xml" />
+    <Content Include="DetailLayouts\ShiftHandoffLeaving_WBI.xml" />
+    <Content Include="DetailLayouts\ShiftHandoff_FRN.xml" />
+    <Content Include="DetailLayouts\ShiftHandoff_LPC.xml" />
+    <Content Include="DetailLayouts\ShiftHandoff_WBI.xml" />
+    <Content Include="DetailLayouts\WA11F1P1.xml" />
+    <Content Include="DetailLayouts\WA11F1P1A.xml" />
+    <Content Include="DetailLayouts\WA11F1P1A_WAK.xml" />
+    <Content Include="DetailLayouts\WA11F1P1B.xml" />
+    <Content Include="DetailLayouts\WA11F1P1B_WAK.xml" />
+    <Content Include="DetailLayouts\WA11F1P1_WAK.xml" />
+    <Content Include="DetailLayouts\WA21F1P18.xml" />
+    <Content Include="DetailLayouts\WA21F1P18_WAK.xml" />
+    <Content Include="DetailLayouts\WA22F1P1.xml" />
+    <Content Include="DetailLayouts\WA22F1P1A.xml" />
+    <Content Include="DetailLayouts\WA22F1P1A_WAK.xml" />
+    <Content Include="DetailLayouts\WA22F1P1B.xml" />
+    <Content Include="DetailLayouts\WA22F1P1_WAK.xml" />
+    <Content Include="DetailLayouts\WA22F1P4.xml" />
+    <Content Include="DetailLayouts\WA22F1P6.xml" />
+    <Content Include="DetailLayouts\WA22F1P8B.xml" />
+    <Content Include="DetailLayouts\WA22F1P8D.xml" />
+    <Content Include="DetailLayouts\WA22F1P9B.xml" />
+    <Content Include="DetailLayouts\WA22F1P9D.xml" />
+    <Content Include="DetailLayouts\WA31F12P1.xml" />
+    <Content Include="DetailLayouts\WA31F12P2.xml" />
+    <Content Include="DetailLayouts\WA31F12P3.xml" />
+    <Content Include="DetailLayouts\WA31F15P1.xml" />
+    <Content Include="DetailLayouts\WA31F15P2.xml" />
+    <Content Include="DetailLayouts\WA31F15P3.xml" />
+    <Content Include="DetailLayouts\WA31F1P1.xml" />
+    <Content Include="DetailLayouts\WA31F1P2.xml" />
+    <Content Include="DetailLayouts\WA31F1P4.xml" />
+    <Content Include="DetailLayouts\WA31F3P1.xml" />
+    <Content Include="DetailLayouts\WA31F3P2.xml" />
+    <Content Include="DetailLayouts\WA31F3P3.xml" />
+    <Content Include="DetailLayouts\WA31F5P1.xml" />
+    <Content Include="DetailLayouts\WA31F5P2.xml" />
+    <Content Include="DetailLayouts\WA31F5P3.xml" />
+    <Content Include="DetailLayouts\WA31F6P2.xml" />
+    <Content Include="DetailLayouts\WA31F6P4.xml" />
+    <Content Include="DetailLayouts\WA52F1P1.xml" />
+    <Content Include="DetailLayouts\WA71F1P7.xml" />
+    <Content Include="DetailLayouts\WA71F1P8.xml" />
+    <Content Include="Web References\SAS2\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\SAS2\SAS2.disco" />
+    <Content Include="Web.config" />
+    <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aggregates.cs" />
+    <Compile Include="AppError.cs" />
+    <Compile Include="BsePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ColorManager.cs" />
+    <Compile Include="ContentHelper.cs" />
+    <Compile Include="DetailLayout.cs" />
+    <Compile Include="DropDownColumns.cs" />
+    <Compile Include="IBasePageDefault.cs" />
+    <Compile Include="LicenseManager.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="PCSDetailsView.cs" />
+    <Compile Include="PCSFormView.cs" />
+    <Compile Include="PCSGridView.cs" />
+    <Compile Include="PCSSecurity.cs" />
+    <Compile Include="PCSTranslation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ROFieldTemplate.cs" />
+    <Compile Include="SASDetailDataSource.cs" />
+    <Compile Include="SASWrapper.cs" />
+    <Compile Include="Utilities.cs" />
+    <Compile Include="Web References\SAS2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Web References\SAS2\SAS2.wsdl" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost/INVSAS2/SAS2.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SAS2\</RelPath>
+      <UpdateFromURL>http://localhost/INVSAS2/SAS2.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LMS2_components_SAS2_Service1</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52558</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44347/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

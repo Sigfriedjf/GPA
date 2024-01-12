@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://localhost/SAS2" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://localhost/SAS2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/SAS2">
+      <s:element name="InitializeWebPage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sPageID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDBName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitializeWebPageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InitializeWebPageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryData_UUQP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sReturnColumns" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPageID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDBNameParm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDisplayView" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nOverrideQueryLimit" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sColumnShown" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nNumOfRows" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSortString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAdvFilterFlag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updateUserPref" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryData_UUQPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryData_UUQPResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryStoredProc_ResultSet_UUQP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sPageID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDBNameParm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="uspNameForSelect" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nOverrideQueryLimit" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sColumnShown" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nNumOfRows" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAdvFilterFlag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updateUserPref" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryStoredProc_ResultSet_UUQPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryStoredProc_ResultSet_UUQPResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VTable" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DBNameParm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dstData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryStoredProc_ResultSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ParmID" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ParmValue" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDBNameParm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QueryStoredProc_ResultSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryStoredProc_ResultSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sReturnColumns" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVTable" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDBNameParm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFilter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDBNameParm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sQuery" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteQueryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="sErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StoredProcForUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StoredProcName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DBNameParm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dst">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StoredProcForUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StoredProcForUpdateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StoredProcForUpdate2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDBNameParm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="spName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="columnNames" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="columnValues" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StoredProcForUpdate2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StoredProcForUpdate2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TranslatePageStrings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sDBName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="useAltLang" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TranslatePageStringsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TranslatePageStringsResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InitializeWebPageSoapIn">
+    <wsdl:part name="parameters" element="tns:InitializeWebPage" />
+  </wsdl:message>
+  <wsdl:message name="InitializeWebPageSoapOut">
+    <wsdl:part name="parameters" element="tns:InitializeWebPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryData_UUQPSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryData_UUQP" />
+  </wsdl:message>
+  <wsdl:message name="QueryData_UUQPSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryData_UUQPResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryStoredProc_ResultSet_UUQPSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryStoredProc_ResultSet_UUQP" />
+  </wsdl:message>
+  <wsdl:message name="QueryStoredProc_ResultSet_UUQPSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryStoredProc_ResultSet_UUQPResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateData" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryStoredProc_ResultSetSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryStoredProc_ResultSet" />
+  </wsdl:message>
+  <wsdl:message name="QueryStoredProc_ResultSetSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryStoredProc_ResultSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryDataSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryData" />
+  </wsdl:message>
+  <wsdl:message name="QueryDataSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteQuery" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="StoredProcForUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:StoredProcForUpdate" />
+  </wsdl:message>
+  <wsdl:message name="StoredProcForUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:StoredProcForUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="StoredProcForUpdate2SoapIn">
+    <wsdl:part name="parameters" element="tns:StoredProcForUpdate2" />
+  </wsdl:message>
+  <wsdl:message name="StoredProcForUpdate2SoapOut">
+    <wsdl:part name="parameters" element="tns:StoredProcForUpdate2Response" />
+  </wsdl:message>
+  <wsdl:message name="TranslatePageStringsSoapIn">
+    <wsdl:part name="parameters" element="tns:TranslatePageStrings" />
+  </wsdl:message>
+  <wsdl:message name="TranslatePageStringsSoapOut">
+    <wsdl:part name="parameters" element="tns:TranslatePageStringsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InitializeWebPageHttpGetIn">
+    <wsdl:part name="sPageID" type="s:string" />
+    <wsdl:part name="sDBName" type="s:string" />
+    <wsdl:part name="sUser" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InitializeWebPageHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="StoredProcForUpdate2HttpGetIn">
+    <wsdl:part name="sDBNameParm" type="s:string" />
+    <wsdl:part name="spName" type="s:string" />
+    <wsdl:part name="columnNames" type="s:string" />
+    <wsdl:part name="columnValues" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="StoredProcForUpdate2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InitializeWebPageHttpPostIn">
+    <wsdl:part name="sPageID" type="s:string" />
+    <wsdl:part name="sDBName" type="s:string" />
+    <wsdl:part name="sUser" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InitializeWebPageHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="StoredProcForUpdate2HttpPostIn">
+    <wsdl:part name="sDBNameParm" type="s:string" />
+    <wsdl:part name="spName" type="s:string" />
+    <wsdl:part name="columnNames" type="s:string" />
+    <wsdl:part name="columnValues" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="StoredProcForUpdate2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="InitializeWebPage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Initialization routine for every LMS2 web page.</wsdl:documentation>
+      <wsdl:input message="tns:InitializeWebPageSoapIn" />
+      <wsdl:output message="tns:InitializeWebPageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryData_UUQP">
+      <wsdl:input message="tns:QueryData_UUQPSoapIn" />
+      <wsdl:output message="tns:QueryData_UUQPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryStoredProc_ResultSet_UUQP">
+      <wsdl:input message="tns:QueryStoredProc_ResultSet_UUQPSoapIn" />
+      <wsdl:output message="tns:QueryStoredProc_ResultSet_UUQPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used as a straight update statement to the database.  The parameters are TableName'[string -required],'DatabaseName'[string - optional], 'Dataset' [dataset with table(0) containing rows to be updated in the table and database described in the other input parms - required].  This function is transaction oriented and builds an update statement based for each row, but only commits after successful completion of all rows.   This is the most efficient method for datasets with many rows because of the limited use of data connections and commits.  This function can also be used by consumers reading ascii text files, etc. where the exact structure of the table is unknown.  This data in the dataset can be of any datatype and the primary key does not have to be set in the dataset because the function reads the database for the datatype of each column and which columns make up the primary key.  The only requirements are that the columns of the dataset must be valid columns in the SQL table and the all columns that make up the primary key must be present.  This function will NOT error if the row of data being updated is not in the database because that criteria does not trigger and SQL error.  The function returns an error message on error and an empty string on successful completion of the function.</wsdl:documentation>
+      <wsdl:input message="tns:UpdateDataSoapIn" />
+      <wsdl:output message="tns:UpdateDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryStoredProc_ResultSet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a dataset on success, otherwise returns error message in referenced input parm.  Parameter1 (usp) is the stored procedure name.  Params 2 &amp; 3 are string arrays that hold the parameters to be passed to the stored proc.  Param 2 (ParmID) is the parameter name.  [example @startdate].  Param 3 (ParmValue) is a string parameter containing the parameter value [ex. 03/15/2005].  Param 4 contains the database name and Param 5 contains the location to put the error message on an error condition.</wsdl:documentation>
+      <wsdl:input message="tns:QueryStoredProc_ResultSetSoapIn" />
+      <wsdl:output message="tns:QueryStoredProc_ResultSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used as a basic data query and to retrieve data.  This function does not require a primary key so VTable can be set to a Table or a View.  There is no limit on the number of rows returned.  Returns a dataset and error message in referenced input parm.  Input parameters are 'ReturnColumns'[required can be '*'],'TableName'[required],'DatabaseName'[optional], 'Filter' [where and order by clause], ErrMsg [referenced input parameter and will be empty when the function runs without an error.]</wsdl:documentation>
+      <wsdl:input message="tns:QueryDataSoapIn" />
+      <wsdl:output message="tns:QueryDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQuery">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used as a basic data query and to retrieve data.  This function does not require a primary key so VTable can be set to a Table or a View.  There is no limit on the number of rows returned.  Returns a dataset and error message in referenced input parm.  Input parameters are 'ReturnColumns'[required can be '*'],'TableName'[required],'DatabaseName'[optional], 'Filter' [where and order by clause], ErrMsg [referenced input parameter and will be empty when the function runs without an error.]</wsdl:documentation>
+      <wsdl:input message="tns:ExecuteQuerySoapIn" />
+      <wsdl:output message="tns:ExecuteQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StoredProcForUpdate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Provides call to a stored procedure using parameters passed in an input dataset.  The number of columns in the dataset must match the number of parameters in the stored procedure and the column names must match the parameter names.  The function adds a @ to the front of the datatable column name for consistency with the SQL syntax.  Input parameters [1]. Stored Procedure Name (string).  [2]. Database Name (string,optional).  [3]. Dataset [column names are stored procedure parameter names].  Returns a string [ErrorMessage] that will be empty when the function runs without an error. This function assumes the dataset only processes the 1st row of the dataset.</wsdl:documentation>
+      <wsdl:input message="tns:StoredProcForUpdateSoapIn" />
+      <wsdl:output message="tns:StoredProcForUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StoredProcForUpdate2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Exclusively used by LMS.  </wsdl:documentation>
+      <wsdl:input message="tns:StoredProcForUpdate2SoapIn" />
+      <wsdl:output message="tns:StoredProcForUpdate2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TranslatePageStrings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Provides call to a stored procedure using parameters passed in an input dataset.  The number of columns in the dataset must match the number of parameters in the stored procedure and the column names must match the parameter names.  The function adds a @ to the front of the datatable column name for consistency with Input parameters [1]. The database name (string).  [2]. Flag stating if an alternate language should be used (Boolean).[3]. List of string items on the LMS2 page potentially requiring translation (DataTable) with the following columns:  ID (string) - id of the control the text came from in LMS (not used in SAS except to pass it back to LMS2 with the translation, Type (string) will be 'column', 'label', or 'detail' and corresponds to the AppsAlias table's ObjectType column, Text (string) the untranslated text from LMS2, AltText (string) the translated text filled in by this call.Returns the same DataTable passed in but with the AltText field filled out.</wsdl:documentation>
+      <wsdl:input message="tns:TranslatePageStringsSoapIn" />
+      <wsdl:output message="tns:TranslatePageStringsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpGet">
+    <wsdl:operation name="InitializeWebPage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Initialization routine for every LMS2 web page.</wsdl:documentation>
+      <wsdl:input message="tns:InitializeWebPageHttpGetIn" />
+      <wsdl:output message="tns:InitializeWebPageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StoredProcForUpdate2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Exclusively used by LMS.  </wsdl:documentation>
+      <wsdl:input message="tns:StoredProcForUpdate2HttpGetIn" />
+      <wsdl:output message="tns:StoredProcForUpdate2HttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpPost">
+    <wsdl:operation name="InitializeWebPage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Initialization routine for every LMS2 web page.</wsdl:documentation>
+      <wsdl:input message="tns:InitializeWebPageHttpPostIn" />
+      <wsdl:output message="tns:InitializeWebPageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StoredProcForUpdate2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Exclusively used by LMS.  </wsdl:documentation>
+      <wsdl:input message="tns:StoredProcForUpdate2HttpPostIn" />
+      <wsdl:output message="tns:StoredProcForUpdate2HttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InitializeWebPage">
+      <soap:operation soapAction="http://localhost/SAS2/InitializeWebPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryData_UUQP">
+      <soap:operation soapAction="http://localhost/SAS2/QueryData_UUQP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryStoredProc_ResultSet_UUQP">
+      <soap:operation soapAction="http://localhost/SAS2/QueryStoredProc_ResultSet_UUQP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateData">
+      <soap:operation soapAction="http://localhost/SAS2/UpdateData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryStoredProc_ResultSet">
+      <soap:operation soapAction="http://localhost/SAS2/QueryStoredProc_ResultSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryData">
+      <soap:operation soapAction="http://localhost/SAS2/QueryData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQuery">
+      <soap:operation soapAction="http://localhost/SAS2/ExecuteQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoredProcForUpdate">
+      <soap:operation soapAction="http://localhost/SAS2/StoredProcForUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoredProcForUpdate2">
+      <soap:operation soapAction="http://localhost/SAS2/StoredProcForUpdate2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TranslatePageStrings">
+      <soap:operation soapAction="http://localhost/SAS2/TranslatePageStrings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InitializeWebPage">
+      <soap12:operation soapAction="http://localhost/SAS2/InitializeWebPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryData_UUQP">
+      <soap12:operation soapAction="http://localhost/SAS2/QueryData_UUQP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryStoredProc_ResultSet_UUQP">
+      <soap12:operation soapAction="http://localhost/SAS2/QueryStoredProc_ResultSet_UUQP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateData">
+      <soap12:operation soapAction="http://localhost/SAS2/UpdateData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryStoredProc_ResultSet">
+      <soap12:operation soapAction="http://localhost/SAS2/QueryStoredProc_ResultSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryData">
+      <soap12:operation soapAction="http://localhost/SAS2/QueryData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQuery">
+      <soap12:operation soapAction="http://localhost/SAS2/ExecuteQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoredProcForUpdate">
+      <soap12:operation soapAction="http://localhost/SAS2/StoredProcForUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoredProcForUpdate2">
+      <soap12:operation soapAction="http://localhost/SAS2/StoredProcForUpdate2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TranslatePageStrings">
+      <soap12:operation soapAction="http://localhost/SAS2/TranslatePageStrings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpGet" type="tns:Service1HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="InitializeWebPage">
+      <http:operation location="/InitializeWebPage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoredProcForUpdate2">
+      <http:operation location="/StoredProcForUpdate2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpPost" type="tns:Service1HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="InitializeWebPage">
+      <http:operation location="/InitializeWebPage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoredProcForUpdate2">
+      <http:operation location="/StoredProcForUpdate2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://localhost/INVSAS2/SAS2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://localhost/INVSAS2/SAS2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpGet" binding="tns:Service1HttpGet">
+      <http:address location="http://localhost/INVSAS2/SAS2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpPost" binding="tns:Service1HttpPost">
+      <http:address location="http://localhost/INVSAS2/SAS2.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

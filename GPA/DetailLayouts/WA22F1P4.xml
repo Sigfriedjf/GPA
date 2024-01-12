@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LayoutDefinition>
+  <Table CSSClass="FormViewLayoutTable">
+    <Columns>
+      <Column size="5%"/>
+      <Column size="10%"/>
+      <Column size="15%"/>
+      <Column size="15%"/>
+      <Column size="20%"/>
+      <Column size="15%"/>
+      <Column size="15%"/>
+      <Column size="5%"/>
+    </Columns>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="Compartment" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="Compartment" columnSpan="2"/>
+      <Item type="Label" dbColumnName="TestDateTime" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="TestDateTime" columnSpan="2"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="LineNumber" columnSpan="1" alignment="right"/>
+      <Item type="Integer" dbColumnName="LineNumber" columnSpan="2"/>
+      <Item type="Label" dbColumnName="BatchID" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="BatchID" columnSpan="2"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="SpotID" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="SpotID" columnSpan="2"/>
+      <Item type="Label" dbColumnName="AuthStatus" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="AuthStatus" columnSpan="2"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="ProductCode" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ProductCode" columnSpan="2"/>
+      <Item type="Label" dbColumnName="APIGravity" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="APIGravity" columnSpan="2"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="NetVolume" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="NetVolume" columnSpan="1"/>
+      <Item type="Value" dbColumnName="VolumeUOM" columnSpan="1"/>
+      <Item type="Label" ReplaceText="GAL" columnSpan="1"/>
+      <Item type="Label" dbColumnName="Density" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="Density" columnSpan="1"/>
+      <Item type="Value" dbColumnName="DensityUOM" columnSpan="1"/>
+      <Item type="Label" dbColumnName="Density" ReplaceText="PPG" columnSpan="1"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="GrossVolume" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="GrossVolume" columnSpan="1"/>
+      <Item type="Value" dbColumnName="VolumeUOM" columnSpan="1"/>
+      <Item type="Label" ReplaceText="GAL" columnSpan="1"/>
+      <Item type="Label" dbColumnName="Viscosity@40" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="Viscosity@40" columnSpan="2"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="NetWeight" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="NetWeight" columnSpan="1"/>
+      <Item type="Value" dbColumnName="MassUOM" columnSpan="1"/>
+      <Item type="Label" ReplaceText="LBS" columnSpan="1"/>
+      <Item type="Label" dbColumnName="Viscosity@100" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="Viscosity@100" columnSpan="2"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="Capacity" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="Capacity" columnSpan="1"/>
+      <Item type="Value" dbColumnName="CapacityUOM" columnSpan="1"/>
+      <Item type="Label" ReplaceText="GAL" columnSpan="1"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+		<Row>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="StartMeasure" columnSpan="1" alignment="right"/>
+			<Item type="Numeric" dbColumnName="StartMeasure" columnSpan="1"/>
+			<Item type="Value" dbColumnName="MeasureUOM" columnSpan="1"/>
+			<Item type="Label" ReplaceText="GAL" columnSpan="1"/>
+			<Item type="Spacer" columnSpan="4"/>
+		</Row>
+		<Row>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="EndMeasure" columnSpan="1" alignment="right"/>
+			<Item type="Numeric" dbColumnName="EndMeasure" columnSpan="1"/>
+			<Item type="Value" dbColumnName="MeasureUOM" columnSpan="1"/>
+			<Item type="Label" ReplaceText="GAL" columnSpan="1"/>
+			<Item type="Spacer" columnSpan="4"/>
+		</Row>
+		<Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="Temperature" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="Temperature" columnSpan="1"/>
+      <Item type="Value" dbColumnName="TemperatureUOM" columnSpan="1"/>
+      <Item type="Label" ReplaceText="F" columnSpan="1"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="UpdatedDate" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="UpdatedDate" columnSpan="2"/>
+      <Item type="Label" dbColumnName="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="UpdatedBy" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="UpdatedBy" columnSpan="2"/>
+      <Item type="Label" dbColumnName="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="8"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="Comments" columnSpan="1"/>
+      <Item type="Spacer" columnSpan="6"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Comments" columnSpan="6" multiLine="true" pixelHeight="120"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+
+    <Row>
+      <!-- Invisible fields.  All drop down fields MUST exist on the form but can be hidden
+                if they are not desired for a particular site.  This also adds a nice blank line to
+                the bottom of the form to keep it from cutting off abruptly.  -->
+      <Item type="Value" dbColumnName="BatchAvailable" columnSpan="1" visible="false"/>
+      <Item type="Value" dbColumnName="ResultID" columnSpan="1" visible="false"/>
+      <Item type="Value" dbColumnName="ProcessNumber" columnSpan="1" visible="false"/>
+      <Item type="Spacer" columnSpan="7"/>
+    </Row>
+  </Table>
+</LayoutDefinition>

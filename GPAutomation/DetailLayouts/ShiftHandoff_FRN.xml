@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LayoutDefinition>
+  <Table CSSClass="FormViewLayoutTable">
+    <Columns>
+      <Column size="5%"/>
+      <Column size="10%"/>
+      <Column size="8%"/>
+      <Column size="2%"/>
+      <Column size="8%"/>
+      <Column size="3%"/>
+      <Column size="8%"/>
+      <Column size="2%"/>
+      <Column size="3%"/>
+      <Column size="11%"/>
+      <Column size="9%"/>
+      <Column size="9%"/>
+      <Column size="7%"/>
+      <Column size="15%"/>
+    </Columns>
+    <Row>
+      <Item type="Spacer" columnSpan="14"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Label" dbColumnName="EnteringLeavingIndLabel" style="bold" columnSpan="1" alignment="center"/>
+      <Item type="Label" dbColumnName="ShiftDateTimeEnterLabel" style="bold" columnSpan="6" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="IncomingOperatorLabel" style="bold" columnSpan="2" alignment="center"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="EnteringLeavingInd" columnSpan="1" alignment="center"/>
+      <Item type="DateValue" dbColumnName="ShiftDateEnter" columnSpan="3" alignment="left"/>
+      <Item type="Value" dbColumnName="ShiftTimeEnter" columnSpan="3" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="UserID"  columnSpan="2"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="3"/>
+      <Item type="Label" dbColumnName="ShiftDateTimeLeaveLabel" style="bold" columnSpan="6" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="IncomingOutgoingOperListLabel" style="bold" columnSpan="2" alignment="center"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="3"/>
+      <Item type="DateValue" dbColumnName="ShiftDateLeave" columnSpan="3" alignment="left"/>
+      <Item type="Value" dbColumnName="ShiftTimeLeave" columnSpan="3" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="IncomingOper1"  columnSpan="1"/>
+      <Item type="Value" dbColumnName="OutgoingOper1"  columnSpan="1"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+
+    <Row>
+      <Item type="Spacer" columnSpan="3"/>
+      <Item type="Label" dbColumnName="ShiftType" style="bold" columnSpan="6" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="IncomingOper2"  columnSpan="1"/>
+      <Item type="Value" dbColumnName="OutgoingOper2"  columnSpan="1"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="3"/>
+      <Item type="Value" dbColumnName="ShiftType"  columnSpan="6"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="IncomingOper3" columnSpan="1"/>
+      <Item type="Value" dbColumnName="OutgoingOper3" columnSpan="1"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="14"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Label" dbColumnName="DocumentationLabel" style="bold" columnSpan="8" alignment="center"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="Documentation1" columnSpan="8"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="Documentation2" columnSpan="8"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="Documentation3" columnSpan="8"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="Documentation4" columnSpan="8"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="Documentation5" columnSpan="8"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="14"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Label" dbColumnName="AcceptResponsibilityLabel" style="bold" columnSpan="1" alignment="center"/>
+      <Item type="Label" dbColumnName="ResponsibilityLabel" style="bold" columnSpan="7" alignment="center"/>
+      <Item type="LabelValue" dbColumnName="EstimatedActualHoursLabel" style="bold" columnSpan="2" alignment="center"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd1" columnSpan="1" alignment="center"/>
+      <Item type="Value" dbColumnName="Responsibility1" columnSpan="7"/>
+      <Item type="Value" dbColumnName="RespHours1" columnSpan="2" alignment="right"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd2" columnSpan="1" alignment="center"/>
+      <Item type="Value" dbColumnName="Responsibility2" columnSpan="7"/>
+      <Item type="Value" dbColumnName="RespHours2" columnSpan="2" alignment="right"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd3" columnSpan="1" alignment="center"/>
+      <Item type="Value" dbColumnName="Responsibility3" columnSpan="7"/>
+      <Item type="Value" dbColumnName="RespHours3" columnSpan="2" alignment="right"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd4" columnSpan="1" alignment="center"/>
+      <Item type="Value" dbColumnName="Responsibility4" columnSpan="7"/>
+      <Item type="Value" dbColumnName="RespHours4" columnSpan="2" alignment="right"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd5" columnSpan="1" alignment="center"/>
+      <Item type="Value" dbColumnName="Responsibility5" columnSpan="7"/>
+      <Item type="Value" dbColumnName="RespHours5" columnSpan="2" alignment="right"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd6" columnSpan="1" alignment="center"/>
+      <Item type="Value" dbColumnName="Responsibility6" columnSpan="7"/>
+      <Item type="Value" dbColumnName="RespHours6" columnSpan="2" alignment="right"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd7" columnSpan="1" alignment="center"/>
+      <Item type="Value" dbColumnName="Responsibility7" columnSpan="7"/>
+      <Item type="Value" dbColumnName="RespHours7" columnSpan="2" alignment="right"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="14"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="9"/>
+      <Item type="Label" dbColumnName="RespTotalHours" style="bold" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="RespTotalHours" columnSpan="2" alignment="right"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Label" dbColumnName="Comments" style="bold" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="11"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="Comments" columnSpan="10" alignment="Left" multiLine="true" pixelHeight="100"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Label" dbColumnName="OtherOperatorComments" style="bold" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="9"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="OtherOperatorComments" columnSpan="10" alignment="Left" multiLine="true" pixelHeight="100"/>
+      <Item type="Spacer" columnSpan="2"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="14"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Label" dbColumnName="AcceptResponsibilityLabel" style="bold" columnSpan="1" alignment="center"/>
+      <Item type="Label" dbColumnName="ResponsibilityLabel" style="bold" columnSpan="7" alignment="center"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd8"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility8"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd9"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility9"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd10"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility10"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd11"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility11"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd12"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility12"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd13"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility13"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd14"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility14"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd15"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility15"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd16"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility16"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd17"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility17"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd18"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility18"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd19"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility19"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd20"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility20"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd21"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility21"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd22"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility22"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd23"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility23"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd24"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility24"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd25"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility25"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd26"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility26"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd27"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility27"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd28"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility28"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd29"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility29"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd30"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility30"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd31"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility31"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd32"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility32"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd33"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility33"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd34"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility34"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd35"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility35"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd36"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility36"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd37"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility37"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd38"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility38"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd39"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility39"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="2"/>
+      <Item type="Value" dbColumnName="RespInd40"  columnSpan="1" alignment="center"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="Responsibility40"  columnSpan="6" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+
+    <Row>
+      <!-- Invisible fields.  All drop down fields MUST exist on the form but can be hidden
+                if they are not desired for a particular site.  This also adds a nice blank line to
+                the bottom of the form to keep it from cutting off abruptly.  -->
+      <Item type="Spacer" columnSpan="14"/>
+    </Row>
+  </Table>
+</LayoutDefinition>

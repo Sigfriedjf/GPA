@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LayoutDefinition>
+  <Table CSSClass="FormViewLayoutTable">
+    <Columns>
+      <Column size="15%"/>
+      <Column size="35%"/>
+      <Column size="5%"/>
+      <Column size="20%"/>
+      <Column size="20%"/>
+      <Column size="5%"/>
+    </Columns>
+    <Row>
+      <Item type="Label" dbColumnName="LegacyCode" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="LegacyCode" columnSpan="1"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="Active" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="Active" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Label" dbColumnName="Description" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="Description" columnSpan="1"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+		<Row>
+			<Item type="Label" dbColumnName="BulkPackage" columnSpan="1" alignment="right"/>
+			<Item type="Value" dbColumnName="BulkPackage" columnSpan="1" alignment="left"/>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="StdDensity" columnSpan="1" alignment="right"/>
+			<Item type="Numeric" dbColumnName="StdDensity" columnSpan="1" alignment="left"/>
+			<Item type="Spacer" columnSpan="1"/>
+		</Row>
+    <Row>
+      <Item type="Label" dbColumnName="ProductCode" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ProductCode" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="DensityCorrCoef" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="DensityCorrCoef" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Label" dbColumnName="MfgGroup" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="MfgGroup" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="ColorGroup" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ColorGroup" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Label" dbColumnName="ProductType" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ProductType" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="ColorCode" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ColorCode" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Label" dbColumnName="ParentCode" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ParentCode" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="GrossWeight" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="GrossWeight" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Label" dbColumnName="HotBoxAdditive" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="HotBoxAdditive" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="NetWeight" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="NetWeight" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+			<Item type="Label" dbColumnName="UOM" columnSpan="1" alignment="right"/>
+			<Item type="Value" dbColumnName="UOM" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="ProductDataItem3" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ProductDataItem3" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="3"/>
+      <Item type="Label" dbColumnName="ProductDataItem4" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ProductDataItem4" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Label" dbColumnName="LabelCode" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="LabelCode" columnSpan="1" alignment="left"/>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="ProductDataItem5" columnSpan="1" alignment="right"/>
+			<Item type="Value" dbColumnName="ProductDataItem5" columnSpan="1" alignment="left"/>
+			<Item type="Spacer" columnSpan="1"/>
+		</Row>
+    <Row>
+      <Item type="Label" dbColumnName="PackageID" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="PackageID" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="StoreTemp" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="StoreTemp" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Label" dbColumnName="PkgLabelCode" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="PkgLabelCode" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="ExpansionCoef" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="ExpansionCoef" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Label" dbColumnName="PackageOwner" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="PackageOwner" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="ProductDataItem1" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ProductDataItem1" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Label" dbColumnName="ToyotaCode" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ToyotaCode" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="4"/>
+    </Row>
+    <Row>
+      <Item type="Label" dbColumnName="ExportImportInd" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ExportImportInd" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="HostCreatedDate" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="HostCreatedDate" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Label" dbColumnName="ProductDataItem2" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ProductDataItem2" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="UpdatedBy" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="UpdatedBy" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="3"/>
+      <Item type="Label" dbColumnName="UpdatedDate" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="UpdatedDate" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>  <!-- Invisible fields.  All drop down fields MUST exist on the form but can be hidden
+                if they are not desired for a particular site.  This also adds a nice blank line to
+                the bottom of the form to keep it from cutting off abruptly.  -->
+      <Item type="Value" dbColumnName="RFIDFlag" columnSpan="1" visible="false"/>
+      <Item type="Value" dbColumnName="LaserSetupID" columnSpan="1" visible="false"/>
+      <Item type="Value" dbColumnName="OilConversionGroup" columnSpan="1" visible="false"/>
+      <Item type="Value" dbColumnName="StockNumber" columnSpan="1" visible="false"/>
+      <Item type="Value" dbColumnName="FormulationID" columnSpan="1" visible="false"/>
+      <Item type="Spacer" columnSpan="3"/>
+    </Row>
+
+  </Table>
+</LayoutDefinition>
+
+
+
+

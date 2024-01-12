@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LayoutDefinition>
+  <Table CSSClass="FormViewLayoutTable">
+    <Columns>
+      <Column size="5%"/>
+      <Column size="10%"/>
+      <Column size="15%"/>
+      <Column size="15%"/>
+      <Column size="20%"/>
+      <Column size="15%"/>
+      <Column size="15%"/>
+      <Column size="5%"/>
+    </Columns>
+
+    <Row>
+      <Item type="Spacer" columnSpan="6"/>
+    </Row>
+
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="Name" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="Name" columnSpan="2" alignment="left"/>
+      <Item type="Label" dbColumnName="Region" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="Region" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="Description" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="Description" columnSpan="2" alignment="left"/>
+      <Item type="Label" dbColumnName="Area" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="Area" columnSpan="2" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+
+    <Row>
+      <Item type="Spacer" columnSpan="6"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="6"/>
+    </Row>
+
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="PipelineStationID" columnSpan="1" alignment="right"/>
+      <Item type="Integer" dbColumnName="PipelineStationID" columnSpan="1" alignment="right"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="ResponsibleTown" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ResponsibleTown" columnSpan="2" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="PhysicalAddress" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="PhysicalAddress" columnSpan="2" alignment="left"/>
+      <Item type="Label" dbColumnName="TownStationName" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="TownStationName" columnSpan="2" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="6"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="LeaseCircuit" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="LeaseCircuit" columnSpan="2" alignment="left"/>
+      <Item type="Label" dbColumnName="ManContact1" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="ManContact1" columnSpan="2" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="TelephoneNumber" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="TelephoneNumber" columnSpan="2" alignment="left"/>
+      <Item type="Label" dbColumnName="ManContact2" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="ManContact2" columnSpan="2" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="4"/>
+      <Item type="Label" dbColumnName="DMT1" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="DMT1" columnSpan="2" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="RTUType" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="RTUType" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="DMT2" columnSpan="1" alignment="right"/>
+      <Item type="Numeric" dbColumnName="DMT2" columnSpan="2" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="RTUAddressGroup" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="RTUAddressGroup" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="ActiveCircuit" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="ActiveCircuit" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="WeatherStation" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="WeatherStation" columnSpan="2" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="8"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="MAOPUpstream" columnSpan="1" alignment="right"/>
+      <Item type="Integer" dbColumnName="MAOPUpstream" columnSpan="1" alignment="right"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="StationType" columnSpan="1" alignment="right"/>
+      <Item type="Integer" dbColumnName="StationType" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="MAOPDownstream" columnSpan="1" alignment="right"/>
+      <Item type="Integer" dbColumnName="MAOPDownstream" columnSpan="1" alignment="right"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="PressureControl" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="PressureControl" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="Pipeline" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="Pipeline" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="FlowControl" columnSpan="1" alignment="right"/>
+      <Item type="Integer" dbColumnName="FlowControl" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="RegionZone" columnSpan="1" alignment="right"/>
+      <Item type="Value" dbColumnName="RegionZone" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="PulseFrom" columnSpan="1" alignment="right"/>
+      <Item type="Integer" dbColumnName="PulseFrom" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="4"/>
+      <Item type="Label" dbColumnName="PulseDrivesOdorizer" columnSpan="1" alignment="right"/>
+      <Item type="Integer" dbColumnName="PulseDrivesOdorizer" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="OperationsInstructions" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="6"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="OperationsInstructions" columnSpan="6" multiLine="true" pixelHeight="100"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Label" dbColumnName="SpecialInformation" columnSpan="1" alignment="left"/>
+      <Item type="Spacer" columnSpan="6"/>
+    </Row>
+    <Row>
+      <Item type="Spacer" columnSpan="1"/>
+      <Item type="Value" dbColumnName="SpecialInformation" columnSpan="6" multiLine="true" pixelHeight="100"/>
+      <Item type="Spacer" columnSpan="1"/>
+    </Row>
+    <Row>
+      <!-- Invisible fields.  All drop down fields MUST exist on the form but can be hidden
+                if they are not desired for a particular site.  This also adds a nice blank line to
+                the bottom of the form to keep it from cutting off abruptly.  -->
+      <Item type="Value" dbColumnName="ID" columnSpan="1" visible="false"/>
+      <Item type="Spacer" columnSpan="6"/>
+    </Row>
+
+  </Table>
+</LayoutDefinition>

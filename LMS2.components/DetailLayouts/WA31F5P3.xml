@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LayoutDefinition>
+	<Table CSSClass="FormViewLayoutTable">
+		<Columns>
+			<Column size="5%"/>
+			<Column size="10%"/>
+			<Column size="13%"/>
+			<Column size="4%"/>
+			<Column size="10%"/>
+			<Column size="13%"/>
+			<Column size="40%"/>
+			<Column size="5%"/>
+		</Columns>
+		<Row>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="ProcessNumber" columnSpan="1" alignment="right"/>
+			<Item type="Value" dbColumnName="NewProcessNumber" columnSpan="1"/>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="Status" columnSpan="1" alignment="right" visible="false"/>
+			<Item type="Value" dbColumnName="Status" columnSpan="1" visible="false"/>
+			<Item type="Spacer" columnSpan="2"/>
+		</Row>
+		<Row>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="ScheduledDate" columnSpan="1" alignment="right"/>
+			<Item type="DateValue" dbColumnName="ScheduledDate" columnSpan="1"/>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="SequenceNumber" columnSpan="1" alignment="right"/>
+			<Item type="Integer" dbColumnName="SequenceNumber" columnSpan="1"/>
+			<Item type="Spacer" columnSpan="2"/>
+		</Row>
+		<Row>
+			<Item type="Spacer" columnSpan="6"/>
+		</Row>
+		<Row>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="Filler" columnSpan="1" alignment="right"/>
+			<Item type="Value" dbColumnName="Filler" columnSpan="4"/>
+			<Item type="Spacer" columnSpan="2"/>
+		</Row>
+		<Row>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="ProductCode" columnSpan="1" alignment="right"/>
+			<Item type="Value" dbColumnName="ProductCode" columnSpan="4"/>
+			<Item type="Spacer" columnSpan="2"/>
+		</Row>
+		<Row>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="OrderQuantity" columnSpan="1" alignment="right"/>
+			<Item type="Numeric" dbColumnName="OrderQuantity" columnSpan="1" alignment="right"/>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="UOM" columnSpan="1" alignment="right"/>
+			<Item type="Value" dbColumnName="UOM" columnSpan="1"/>
+			<Item type="Spacer" columnSpan="2"/>
+		</Row>
+		<Row>
+			<Item type="Spacer" columnSpan="8"/>
+		</Row>
+		<Row>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Label" dbColumnName="Comments" columnSpan="1"/>
+			<Item type="Spacer" columnSpan="6"/>
+		</Row>
+		<Row>
+			<Item type="Spacer" columnSpan="1"/>
+			<Item type="Value" dbColumnName="Comments" columnSpan="6" multiLine="true" pixelHeight="300"/>
+			<Item type="Spacer" columnSpan="1"/>
+		</Row>
+		<Row>
+			<!-- Invisible fields.  All drop down fields MUST exist on the form but can be hidden
+                if they are not desired for a particular site.  This also adds a nice blank line to
+                the bottom of the form to keep it from cutting off abruptly.  -->
+			<Item type="Value" dbColumnName="OrderType" columnSpan="1" visible="false"/>
+		</Row>
+	</Table>
+</LayoutDefinition>
+
