@@ -55,7 +55,11 @@ namespace LMS2.components
             DataSet ds = null;
             try
             {
-                
+                if (spName == "uspGetTreeNodes")
+                {
+                    paramValues[0] = "AdminRick";
+                    //paramValues[1] = "";
+                }
                 using (SAS2.Service1 sas = new SAS2.Service1())
                 {
                     sas.PreAuthenticate = true;

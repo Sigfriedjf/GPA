@@ -1,0 +1,40 @@
+.noPrint
+{
+    display:none;
+}
+
+.FormViewControlPanel
+{
+	display:none;
+}
+
+.shadetabs
+{
+	display:none;
+}
+
+.TableFilter
+{
+	font-weight: normal;
+	font-family: Arial;
+	background-color: white;
+	font-size:x-small;
+}
+
+.TableFilter td
+{
+	border:1px solid #3E9788;
+	padding: 0px;
+}
+
+body
+{
+	font-weight: normal;
+	font-size:x-small;
+	word-spacing: normal;
+	text-transform: none;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	letter-spacing: normal;
+	background-color: #ffffff;
+	margin:0px;
+}

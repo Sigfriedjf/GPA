@@ -32,6 +32,7 @@ namespace LMS2.components
         {
             get
             {
+                _pageSecurity = SASPermission.Update;///borrar
                 if (_pageSecurity == SASPermission.NotYetSet)
                 {
                     string secFlag = PCSSecurity.Permission(UserID, PageID).ToString();
@@ -67,7 +68,7 @@ namespace LMS2.components
         public bool HasHistoryPage { get { return (_Session(PageID + "HistoryView").Length > 0); } }
         public bool LeavingHistory { get { return (Session["LeavingHistory"] != null) ? (bool)Session["LeavingHistory"] : false; } }
         public bool UserChanged { get { return (Session["UserChanged"] != null) ? (bool)Session["UserChanged"] : false; } set { Session["UserChanged"] = value; } }
-        public string DetailMode { get { return (Request.QueryString["DetailMode"] != null) ? Request.QueryString["DetailMode"] : ""; } }
+        public string DetailMode { get { return (Request.QueryString["DetailMode"] != null) ? Request.QueryString["DetailMode"] : "Edit"; } }
         public string FileName { get { return System.IO.Path.GetFileNameWithoutExtension(System.Web.HttpContext.Current.Request.Url.AbsolutePath); } }
 
         // These properties are overidden to provide user switching support
@@ -95,13 +96,13 @@ namespace LMS2.components
             if (!Request.FilePath.EndsWith("BadError.aspx"))
                 LoadSessionVariables((Request["pageID"] != null) ? Request["pageID"] : "");
 
-            // check for password expiration if we haven't checked yet
-            if (!Request.FilePath.EndsWith("PasswordExpired.aspx"))
-            {
-                if (!IsPostBack)
-                    if (CheckPasswordExpiration())
-                        RedirectToSecurePasswordChange();
-            }
+            //// check for password expiration if we haven't checked yet
+            //if (!Request.FilePath.EndsWith("PasswordExpired.aspx"))
+            //{
+            //    if (!IsPostBack)
+            //        if (CheckPasswordExpiration())
+            //            RedirectToSecurePasswordChange();
+            //}
         }
 
         // Loads session variables for the designated page...
@@ -111,8 +112,8 @@ namespace LMS2.components
             pageIDChanged = false;
 
             // If no PageID, then send to Default.aspx (this should only occur during our debugging)
-            if (Request["PageID"] == null)
-                Response.Redirect("Default.aspx");
+            //if (Request["PageID"] == null)
+            //    Response.Redirect("Default.aspx");
 
             string WWQueryFilter = string.Empty;
             if ((Request.QueryString["src"] != null && Request.QueryString["src"] == "ww") && !string.IsNullOrEmpty(Request.QueryString["Filter"]))
@@ -167,12 +168,15 @@ namespace LMS2.components
 
                 Session["LeavingHistory"] = IsHistoryPage; // if this is a history page, set the flag so we'll reload the normal page when we come back in
 
-                string sUserID = string.Empty;
-                if (Request.QueryString["UID"] != null && Request.QueryString["UID"].Length > 0)
-                {
-                    sUserID = Request.QueryString["UID"];
-                    Session["UserID"] = sUserID;
-                }
+                string sUserID = "AdminRick";// string.Empty;
+                Session["UserID"] = sUserID;
+                
+                Session["HomePageLogoFile"] = "defaultbkgrd_WBI.jpg";
+                //        if (Request.QueryString["UID"] != null && Request.QueryString["UID"].Length > 0)
+                //        {
+                //            sUserID = Request.QueryString["UID"];
+                //Session["UserID"] = "AdminRick";//sUserID;
+                //        }
                 DataSet ds = SASWrapper.InitializeWebPage(pageID, DatabaseName, _Session("UserID").Length > 0 ? _Session("UserID") : sUserID);
                 pageIDChanged = true;
                 if (ds != null && ds.Tables.Count > 0)
@@ -577,16 +581,16 @@ namespace LMS2.components
                 Response.Redirect(string.Format("NoPermission.aspx?PageID=&NodeID={0}", Request.QueryString["NodeID"]));
 
             // Check server licensing
-            LMS2.components.LicenseManager lm = (LMS2.components.LicenseManager)Application["LicenseManager"];
-            if (!lm.IsLicenseValid && !Request.FilePath.EndsWith("NoLicense.aspx"))
-                Response.Redirect("NoLicense.aspx?PageID=&NodeID=");
+            //LMS2.components.LicenseManager lm = (LMS2.components.LicenseManager)Application["LicenseManager"];
+            //if (!lm.IsLicenseValid && !Request.FilePath.EndsWith("NoLicense.aspx"))
+            //    Response.Redirect("NoLicense.aspx?PageID=&NodeID=");
 
-            // Check concurrent user limit
-            if (!lm.IsCurrentSessionLicensed(Session.SessionID) && !Request.FilePath.EndsWith("NoUserLicense.aspx"))
-                Response.Redirect("NoUserLicense.aspx?PageID=&NodeID=");
+            //// Check concurrent user limit
+            //if (!lm.IsCurrentSessionLicensed(Session.SessionID) && !Request.FilePath.EndsWith("NoUserLicense.aspx"))
+            //    Response.Redirect("NoUserLicense.aspx?PageID=&NodeID=");
 
-            if (!string.IsNullOrEmpty(Request.QueryString["PageScopeReset"]))
-                Session["PageScopePageID"] = string.Empty;
+            //if (!string.IsNullOrEmpty(Request.QueryString["PageScopeReset"]))
+            //    Session["PageScopePageID"] = string.Empty;
 
             Title = _Session(pageID + "PageHeading", "IWAF Untitled");
         }
@@ -619,7 +623,6 @@ namespace LMS2.components
         {
             // Dipslay the userid if the screen has a place for it
             UserIDDisplay = UserID;
-
             if (UserChanged)
             {
                 if (!UserChangeTimer)

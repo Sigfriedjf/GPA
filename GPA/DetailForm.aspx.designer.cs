@@ -344,11 +344,11 @@ namespace GPA
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new GPA.SiteMaster Master
+        public new GPA.LMSGridViewFilter Master
         {
             get
             {
-                return ((GPA.SiteMaster)(base.Master));
+                return ((GPA.LMSGridViewFilter)(base.Master));
             }
         }
     }

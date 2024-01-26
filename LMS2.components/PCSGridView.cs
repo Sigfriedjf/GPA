@@ -112,7 +112,7 @@ namespace LMS2.components
                 Columns.Clear();
 
             // Get list of columns that should be hidden in grid
-            Dictionary<string, int> hideCols = Page.Session["HiddenColumns"] as Dictionary<string, int>;
+            Dictionary<string, int> hideCols = Page.Session["HiddenColumns"] != null ? Page.Session["HiddenColumns"] as Dictionary<string, int> : new Dictionary<string, int>();
 
             if (hideCols.ContainsKey("backcolor") || hideCols.ContainsKey("forecolor"))
             {
@@ -174,7 +174,7 @@ namespace LMS2.components
             }
 
             Aggregates agg = (Aggregates)Page.Session["ColumnAggregates"];
-            if (agg.hasAggregateColumns)
+            if (agg!=null &&agg.hasAggregateColumns)
                 ShowFooter = true; // turn on footer row for result display
 
         }

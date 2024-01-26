@@ -1,0 +1,545 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/LMSiframe.master" AutoEventWireup="true" CodeBehind="TagFilter.master.cs" Inherits="GPA.TagGridView" %>
+<%@ Register TagPrefix="uc1" TagName="TabStrip" Src="~/Controls/TabStripUC.ascx" %>
+<%@ MasterType VirtualPath="~/LMSiframe.Master" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+		<uc1:TabStrip id="TabStrip" runat="server"></uc1:TabStrip>
+                <asp:Panel ID="TagFilteringPanel" runat="server" CssClass="SectionPanel">
+					<asp:Panel ID="TagFilterHeader" runat="server" CssClass="CollapsibleHeader">
+					    <div class='noPrint'>
+						    <table width="100%">
+							    <tr>
+								    <td valign="middle" >
+									    <asp:Image ID="TagFilterHeaderImage" runat="server" ImageUrl="images/collapse.jpg" style="cursor:hand; margin-right:10px" />
+									  </td>
+									  <td valign="middle" width="100%">
+									    <asp:Label ID="Label2" runat="server" Text="Tagnames"/>
+								    </td>
+							    </tr>
+						    </table>
+						</div>
+					</asp:Panel>
+					<asp:Panel ID="TagFilterContent" runat="server" CssClass="CollapsibleContent">
+
+						<asp:UpdatePanel ID="UpdatePanel1" runat="server" 
+                            UpdateMode="Conditional">
+							<ContentTemplate>
+							    <div class='noPrint'>
+                                    <asp:Table ID="Table1" runat="server" CssClass="ToolBar">
+                                        <asp:TableRow>
+                                            <asp:TableCell Width="100%" Height="25">
+                                                <asp:ImageButton runat="server" ID="ImageButton1" 
+                                                    ImageUrl="~/Images/filter_SQL_run.gif" CssClass="toolbarimage" OnClick="ibAddFilter_Click" ToolTip="Refresh Grid"></asp:ImageButton>
+                                                <asp:ImageButton runat="server" ID="ImageButton3" 
+                                                    ImageUrl="~/Images/erase.gif" CssClass="toolbarimage" OnClick="ibClearTagFilter_Click" ToolTip="Clear Tag Filter Values" Visible="true"></asp:ImageButton>
+                                                <asp:Image runat="server" ID="ibTagFilterInfo" style="cursor:hand"
+                                                    ImageUrl="~/Images/info_sml.gif" CssClass="toolbarimage" ToolTip="Tag Filter Information"></asp:Image>
+                                            </asp:TableCell>
+                                        </asp:TableRow>
+                                    </asp:Table>
+                                </div>
+                                <div id="div1" class="GridFilter" runat="server">
+                                    <asp:Panel ID="Panel3" CssClass="PanelGridContents" runat="server">
+                                        <asp:Panel ID="pnlDateTime" runat="server" Visible="false">
+                                            <asp:Table ID="Table3"  CssClass="DurationSpan" runat="server">
+                                                <asp:TableRow>
+                                                    <asp:TableCell ID="tcStartDate" Wrap="false">
+                                                        <asp:Label ID="Label16" Text="Start Date" runat="server"></asp:Label>:
+                                                        <asp:TextBox id="tbxStartDate" runat="server" Columns="7" MaxLength="10" />
+                                                        <asp:ImageButton runat="server" ID="ibStartDateCal" ImageUrl="~/Images/calendar.png"/>
+                                                        <cc1:CalendarExtender runat="server" ID="StartDatecalExt" TargetControlID="tbxStartDate" PopupButtonID="ibStartDateCal"></cc1:CalendarExtender>
+                                                        <cc1:FilteredTextBoxExtender runat="server" ID="ftbeStartDate" TargetControlID="tbxStartDate" FilterType="Custom, Numbers" ValidChars="0123456789/" />&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </asp:TableCell>
+                                                    <asp:TableCell ID="tcStartTime" Wrap="false">
+                                                        <asp:Label ID="Label17" Text="Time" runat="server"></asp:Label>:
+                                                        <asp:TextBox id="tbxStartTime" runat="server" Columns="4" MaxLength="8" />
+                                                        <cc1:FilteredTextBoxExtender runat="server" ID="ftbeStartTime" TargetControlID="tbxStartTime" FilterType="Custom, Numbers" ValidChars="0123456789:" />&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </asp:TableCell>
+                                                    <asp:TableCell ID="tcDurationDay" Wrap="false">
+                                                        <asp:Label ID="Label18" Text="Duration (day)" runat="server"></asp:Label>:
+                                                        <asp:TextBox id="tbxDurationDay" runat="server" Columns="4" MaxLength="8" />
+                                                        <cc1:FilteredTextBoxExtender runat="server" ID="ftbeDurationDay" TargetControlID="tbxDurationDay" FilterType="Custom, Numbers" ValidChars="0123456789" />&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </asp:TableCell>
+                                                    <asp:TableCell ID="tcDurationMin" Wrap="false">
+                                                        <asp:Label ID="Label19" Text="Duration (min)" runat="server"></asp:Label>:
+                                                        <asp:TextBox id="tbxDurationMin" runat="server" Columns="4" MaxLength="8" />
+                                                        <cc1:FilteredTextBoxExtender runat="server" ID="ftbeDurationMin" TargetControlID="tbxDurationMin" FilterType="Custom, Numbers" ValidChars="0123456789" />&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </asp:TableCell>
+                                                    <asp:TableCell ID="tcDirection" Wrap="false">
+                                                        <asp:Label ID="Label20" Text="Direction" runat="server"></asp:Label>:
+                                                        <asp:DropDownList ID="ddlDirection" runat="server" />&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </asp:TableCell>
+                                                    <asp:TableCell ID="tcInterval" Wrap="false">
+                                                        <asp:Label ID="Label21" Text="Interval (hh:mm:ss)" runat="server"></asp:Label>:
+                                                        <asp:TextBox id="tbxInterval" runat="server" Columns="8" MaxLength="8" />
+                                                        <cc1:FilteredTextBoxExtender runat="server" ID="ftbeInterval" TargetControlID="tbxInterval" FilterType="Custom, Numbers" ValidChars="0123456789:" />&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </asp:TableCell>
+                                                    <asp:TableCell ID="tcNoteEntry" Wrap="false">
+                                                        <asp:Label ID="Label22" Text="Note Entry" runat="server"></asp:Label>:
+                                                        <asp:TextBox id="tbxNoteEntry" runat="server" Columns="80" MaxLength="70" />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
+                                        </asp:Panel>
+										<div id="divTagFilterTable" runat="server">
+											<asp:table ID="Table2" BorderWidth="0" CellPadding="4" runat="server">
+												<asp:TableRow>
+													<asp:TableCell>
+														<asp:Table ID="tblTagGridFilter" CellPadding="4" runat="server" CellSpacing="0" BackColor="White" CssClass="TagGridFilter" BorderStyle="Solid" BorderWidth="1">
+                                                            <asp:TableHeaderRow>
+                                                                <asp:TableHeaderCell CssClass="TagGridFilter">
+                                                                    <asp:Label ID="lbl1" runat="server"></asp:Label>
+                                                                </asp:TableHeaderCell>
+                                                                <asp:TableHeaderCell BorderWidth="1" CssClass="TagGridFilter">
+                                                                    <asp:Label ID="Label7" Text="TagLevel1" runat="server"></asp:Label>
+                                                                </asp:TableHeaderCell>
+                                                                <asp:TableHeaderCell BorderWidth="1" CssClass="TagGridFilter">
+                                                                    <asp:Label ID="Label5" Text="TagLevel2" runat="server"></asp:Label>
+                                                                </asp:TableHeaderCell>
+                                                                <asp:TableHeaderCell BorderWidth="1" CssClass="TagGridFilter">
+                                                                    <asp:Label ID="Label6" Text="TagLevel3" runat="server"></asp:Label>
+                                                                </asp:TableHeaderCell>
+                                                                <asp:TableHeaderCell BorderWidth="1" CssClass="TagGridFilter">
+                                                                    <asp:Label ID="lblDevice" Text="Device" runat="server"></asp:Label>
+                                                                </asp:TableHeaderCell>
+                                                                <asp:TableHeaderCell BorderWidth="1" CssClass="TagGridFilter">
+                                                                    <asp:Label ID="Label8" Text="Tagname" runat="server"></asp:Label>
+                                                                </asp:TableHeaderCell>
+                                                                <asp:TableHeaderCell BorderWidth="1" CssClass="TagGridFilter">
+                                                                    <asp:Label ID="lblDescription" Text="Description" runat="server"></asp:Label>
+                                                                </asp:TableHeaderCell>
+                                                                <asp:TableHeaderCell BorderWidth="1" CssClass="TagGridFilter">
+                                                                    <asp:Label ID="lblType" Text="Type" runat="server"></asp:Label>
+                                                                </asp:TableHeaderCell>
+                                                                <asp:TableHeaderCell BorderWidth="1" CssClass="TagGridFilter">
+                                                                    <asp:Label ID="lblUOM" Text="UOM" runat="server"></asp:Label>
+                                                                </asp:TableHeaderCell>
+                                                                <asp:TableHeaderCell BorderWidth="1" Visible="false" ID="thNew" CssClass="TagGridFilter">
+                                                                    <asp:Label ID="lblNew" Text="NewLesson" runat="server"></asp:Label>
+                                                                </asp:TableHeaderCell>
+                                                            </asp:TableHeaderRow>
+                                                            <asp:TableRow ID="tr1" runat="server">
+                                                                <asp:TableCell CssClass="TagGridFilter2" Wrap="false">
+                                                                    <asp:ImageButton runat="server" ID="ibAdd" OnClick="ibAdd_Click" ImageUrl="~/Images/add.gif" Visible="true"></asp:ImageButton>
+                                                                    <asp:Image runat="server" ID="ImageButton2" ImageUrl="~/Images/noImage.gif" Width="5px" Visible="true"></asp:Image>
+                                                                    <asp:ImageButton runat="server" ID="ibRemove" OnClick="ibRemove_Click" ImageUrl="~/Images/remove.gif" Visible="true"></asp:ImageButton>
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel1_1" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel1_1Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel2_1" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel2_1Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel3_1" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel3_1Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDevice1" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagname1" AutoPostBack="True" OnSelectedIndexChanged="ddlTagname_1Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDescription1" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblType1" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblUOM1" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell ID="tcNew1" Visible="false" BorderWidth="1" CssClass="TagGridFilter" Wrap="false" HorizontalAlign="Center">
+                                                                    <asp:ImageButton runat="server" ID="ibNewRecord1" OnClick="ibNewRecord1_Click" ImageUrl="~/Images/new_tiny.gif" Visible="false"></asp:ImageButton>
+                                                                </asp:TableCell>
+                					                        </asp:TableRow>
+                                                            <asp:TableRow ID="tr2" runat="server">
+                                                                <asp:TableCell CssClass="TagGridFilter2" Wrap="false">
+                                                                    <asp:Label id="Label3" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel1_2" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel1_2Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel2_2" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel2_2Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel3_2" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel3_2Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDevice2" runat="server" />
+                                                                </asp:TableCell>
+                                                               <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagname2" AutoPostBack="True" OnSelectedIndexChanged="ddlTagname_2Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDescription2" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblType2" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblUOM2" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell ID="tcNew2" Visible="false" BorderWidth="1" CssClass="TagGridFilter" Wrap="false" HorizontalAlign="Center">
+                                                                    <asp:ImageButton runat="server" ID="ibNewRecord2" OnClick="ibNewRecord2_Click" ImageUrl="~/Images/new_tiny.gif" Visible="false"></asp:ImageButton>
+                                                                </asp:TableCell>
+                					                        </asp:TableRow>
+                                                            <asp:TableRow ID="tr3" runat="server">
+                                                                <asp:TableCell CssClass="TagGridFilter2" Wrap="false">
+                                                                    <asp:Label id="Label9" runat="server" />
+                                                                </asp:TableCell>
+                                                               <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel1_3" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel1_3Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel2_3" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel2_3Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel3_3" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel3_3Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDevice3" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagname3" AutoPostBack="True" OnSelectedIndexChanged="ddlTagname_3Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDescription3" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblType3" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblUOM3" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell ID="tcNew3" Visible="false" BorderWidth="1" CssClass="TagGridFilter" Wrap="false" HorizontalAlign="Center">
+                                                                    <asp:ImageButton runat="server" ID="ibNewRecord3" OnClick="ibNewRecord3_Click" ImageUrl="~/Images/new_tiny.gif" Visible="false"></asp:ImageButton>
+                                                                </asp:TableCell>
+                					                        </asp:TableRow>
+                                                            <asp:TableRow ID="tr4" runat="server">
+                                                                <asp:TableCell CssClass="TagGridFilter2" Wrap="false">
+                                                                    <asp:Label id="Label4" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel1_4" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel1_4Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel2_4" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel2_4Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel3_4" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel3_4Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDevice4" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagname4" AutoPostBack="True" OnSelectedIndexChanged="ddlTagname_4Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDescription4" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblType4" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblUOM4" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell ID="tcNew4" Visible="false" BorderWidth="1" CssClass="TagGridFilter" Wrap="false" HorizontalAlign="Center">
+                                                                    <asp:ImageButton runat="server" ID="ibNewRecord4" OnClick="ibNewRecord4_Click" ImageUrl="~/Images/new_tiny.gif" Visible="false"></asp:ImageButton>
+                                                                </asp:TableCell>
+                					                        </asp:TableRow>
+                                                            <asp:TableRow ID="tr5" runat="server">
+                                                                <asp:TableCell CssClass="TagGridFilter2" Wrap="false">
+                                                                    <asp:Label id="Label10" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel1_5" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel1_5Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel2_5" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel2_5Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel3_5" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel3_5Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDevice5" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagname5" AutoPostBack="True" OnSelectedIndexChanged="ddlTagname_5Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDescription5" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblType5" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblUOM5" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell ID="tcNew5" Visible="false" BorderWidth="1" CssClass="TagGridFilter" Wrap="false" HorizontalAlign="Center">
+                                                                    <asp:ImageButton runat="server" ID="ibNewRecord5" OnClick="ibNewRecord5_Click" ImageUrl="~/Images/new_tiny.gif" Visible="false"></asp:ImageButton>
+                                                                </asp:TableCell>                                                                
+                					                        </asp:TableRow>
+                                                            <asp:TableRow ID="tr6" runat="server">
+                                                                <asp:TableCell CssClass="TagGridFilter2" Wrap="false">
+                                                                    <asp:Label id="Label11" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel1_6" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel1_6Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel2_6" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel2_6Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel3_6" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel3_6Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDevice6" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagname6" AutoPostBack="True" OnSelectedIndexChanged="ddlTagname_6Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDescription6" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblType6" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblUOM6" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell ID="tcNew6" Visible="false" BorderWidth="1" CssClass="TagGridFilter" Wrap="false" HorizontalAlign="Center">
+                                                                    <asp:ImageButton runat="server" ID="ibNewRecord6" OnClick="ibNewRecord6_Click" ImageUrl="~/Images/new_tiny.gif" Visible="false"></asp:ImageButton>
+                                                                </asp:TableCell>
+                					                        </asp:TableRow>
+                                                            <asp:TableRow ID="tr7" runat="server">
+                                                                <asp:TableCell CssClass="TagGridFilter2" Wrap="false">
+                                                                    <asp:Label id="Label12" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel1_7" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel1_7Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel2_7" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel2_7Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel3_7" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel3_7Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDevice7" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagname7" AutoPostBack="True" OnSelectedIndexChanged="ddlTagname_7Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDescription7" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblType7" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblUOM7" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell ID="tcNew7" Visible="false" BorderWidth="1" CssClass="TagGridFilter" Wrap="false" HorizontalAlign="Center">
+                                                                    <asp:ImageButton runat="server" ID="ibNewRecord7" OnClick="ibNewRecord7_Click" ImageUrl="~/Images/new_tiny.gif" Visible="false"></asp:ImageButton>
+                                                                </asp:TableCell>                                                                
+                					                        </asp:TableRow>
+                                                            <asp:TableRow ID="tr8" runat="server">
+                                                                <asp:TableCell CssClass="TagGridFilter2" Wrap="false">
+                                                                    <asp:Label id="Label13" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel1_8" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel1_8Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel2_8" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel2_8Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel3_8" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel3_8Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDevice8" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagname8" AutoPostBack="True" OnSelectedIndexChanged="ddlTagname_8Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDescription8" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblType8" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblUOM8" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell ID="tcNew8" Visible="false" BorderWidth="1" CssClass="TagGridFilter" Wrap="false" HorizontalAlign="Center">
+                                                                    <asp:ImageButton runat="server" ID="ibNewRecord8" OnClick="ibNewRecord8_Click" ImageUrl="~/Images/new_tiny.gif" Visible="false"></asp:ImageButton>
+                                                                </asp:TableCell>                                                                                                                                
+                					                        </asp:TableRow>
+                                                            <asp:TableRow ID="tr9" runat="server">
+                                                                <asp:TableCell CssClass="TagGridFilter2" Wrap="false">
+                                                                    <asp:Label id="Label14" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel1_9" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel1_9Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel2_9" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel2_9Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel3_9" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel3_9Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDevice9" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagname9" AutoPostBack="True" OnSelectedIndexChanged="ddlTagname_9Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDescription9" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblType9" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblUOM9" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell ID="tcNew9" Visible="false" BorderWidth="1" CssClass="TagGridFilter" Wrap="false" HorizontalAlign="Center">
+                                                                    <asp:ImageButton runat="server" ID="ibNewRecord9" OnClick="ibNewRecord9_Click" ImageUrl="~/Images/new_tiny.gif" Visible="false"></asp:ImageButton>
+                                                                </asp:TableCell>
+                					                        </asp:TableRow>
+                                                            <asp:TableRow ID="tr10" runat="server">
+                                                                <asp:TableCell CssClass="TagGridFilter2" Wrap="false">
+                                                                    <asp:Label id="Label15" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel1_10" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel1_10Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel2_10" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel2_10Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagLevel3_10" AutoPostBack="True" OnSelectedIndexChanged="ddlTagLevel3_10Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDevice10" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter" Wrap="false">
+                                                                    <asp:DropDownList ID="ddlTagname10" AutoPostBack="True" OnSelectedIndexChanged="ddlTagname_10Changed" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblDescription10" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblType10" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell BorderWidth="1" CssClass="TagGridFilter1" Wrap="false">
+                                                                    <asp:Label id="lblUOM10" runat="server" />
+                                                                </asp:TableCell>
+                                                                <asp:TableCell ID="tcNew10" Visible="false" BorderWidth="1" CssClass="TagGridFilter" Wrap="false" HorizontalAlign="Center">
+                                                                    <asp:ImageButton runat="server" ID="ibNewRecord10" OnClick="ibNewRecord10_Click" ImageUrl="~/Images/new_tiny.gif" Visible="false"></asp:ImageButton>
+                                                                </asp:TableCell>                                                                
+                					                        </asp:TableRow>
+                                                        </asp:Table>
+													</asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:table>
+                                        </div>
+                                        <br />
+                                    </asp:Panel>
+                                </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                        
+                    </asp:Panel>
+                    <cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender2" runat="server" 
+						 ImageControlID="TagFilterHeaderImage" 
+						 TargetControlID="TagFilterContent" 
+						 ExpandControlID="TagFilterHeaderImage"
+						 CollapseControlID="TagFilterHeaderImage"
+						 Collapsed="True" 
+						 CollapsedImage="images/expand.jpg"
+						 ExpandedImage="images/collapse.jpg" />
+                </asp:Panel>		
+		
+				<asp:Panel ID="FilteringPanel" runat="server" CssClass="SectionPanel">
+					<asp:Panel ID="FilterHeader" runat="server" CssClass="CollapsibleHeader">
+					    <div class='noPrint'>
+						    <table width="100%">
+							    <tr>
+								    <td valign="middle" >
+									    <asp:Image ID="FilterHeaderImage" runat="server" ImageUrl="images/collapse.jpg" style="cursor:hand; margin-right:10px" ImageAlign="Middle" />
+									  </td>
+									  <td valign="middle" >
+									    <asp:Label ID="Label1" runat="server" Text="Filter Criteria" Width="100px"/>
+								    </td>
+								    <td valign="middle" width="100%">
+									    <asp:UpdatePanel ID="QuickFilterUpdate" runat="server">
+												<ContentTemplate>
+													<asp:TextBox ID="QuickFilterBox" runat="server" CssClass="QuickFilterBox" OnTextChanged="ApplyQuickFilter" AutoPostBack="true"/>
+													<asp:ImageButton runat="server" ID="ibApplyQuickFilter" ImageUrl="~/Images/filter_SQL_run_sml.gif" OnClick="ApplyQuickFilter" ToolTip="Apply filter" ImageAlign="Middle"/>
+												</ContentTemplate>
+									    </asp:UpdatePanel>
+								    </td>
+							    </tr>
+						    </table>
+						</div>
+					</asp:Panel>
+					<asp:Panel ID="FilterContent" runat="server" CssClass="CollapsibleContent">
+						<asp:UpdatePanel ID="UpdatePanel_Filter" runat="server" 
+                            UpdateMode="Conditional">
+							<ContentTemplate>
+							    <div class='noPrint'>
+                                    <asp:Table ID="Table5" runat="server" CssClass="ToolBar">
+                                        <asp:TableRow>
+                                            <asp:TableCell Width="100%" Height="25">
+                                                <asp:ImageButton runat="server" ID="ibAddFilter" 
+                                                    ImageUrl="~/Images/filter_SQL_run.gif" CssClass="toolbarimage" OnClick="ibAddFilter_Click" ToolTip="Refresh Grid"></asp:ImageButton>
+											    <asp:ImageButton runat="server" ID="ibRunSQLFilter" 
+												    ImageUrl="~/Images/filter_SQL_run.gif" CssClass="toolbarimage" OnClick="ibRunSQLFilter_Click" ToolTip="Run SQL Filter"></asp:ImageButton>
+                                                <asp:ImageButton runat="server" ID="ibClearFilter" 
+                                                    ImageUrl="~/Images/erase.gif" CssClass="toolbarimage" OnClick="ibClearFilter_Click" ToolTip="Clear Filter Values" Visible="true"></asp:ImageButton>
+                                                <asp:ImageButton runat="server" ID="ibSQLFilter" 
+                                                    ImageUrl="~/Images/filter_SQL.gif" CssClass="toolbarimage" OnClick="ibSQLFilter_Click" ToolTip="Enter SQL Clause" Visible="true"></asp:ImageButton>
+                                                <asp:Label runat="server" ID="lblSwitchFilter" Text="SwitchFilter" Visible="false"></asp:Label>
+                                                <asp:Image runat="server" ID="ibFilterInfo" style="cursor:hand"
+                                                    ImageUrl="~/Images/info_sml.gif" CssClass="toolbarimage" ToolTip="Grid Filter Information"></asp:Image>
+                                            </asp:TableCell>
+                                        </asp:TableRow>
+                                    </asp:Table>
+                                </div>
+                                <div id="divFilter" class="GridFilter" runat="server">
+                                    <asp:Panel ID="Panel1" CssClass="PanelGridContents" runat="server">
+										<div id="divFilterTable" runat="server">
+											<asp:table ID="tblFilter" BorderWidth="0" CellPadding="4" runat="server">
+												<asp:TableRow>
+													<asp:TableCell>
+														<asp:table id="tblGridFilter" CellPadding="4" runat="server" CellSpacing="0" BackColor="White" CssClass="TagGridFilter" BorderStyle="Solid" BorderWidth="1" />
+													</asp:TableCell>
+												</asp:TableRow>
+											</asp:table>
+                                        </div>
+                                        <div id="divSQLFilter" runat="server">
+                                            <asp:TextBox Width="99%" id="tbxSQL" runat="server" Height="70" Columns="120" TextMode="MultiLine"></asp:TextBox>
+                                        </div>
+                                        <br />
+                                    </asp:Panel>
+                                </div>
+							</ContentTemplate>
+						</asp:UpdatePanel>
+					</asp:Panel>
+					<cc1:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="server" 
+						 ImageControlID="FilterHeaderImage" 
+						 TargetControlID="FilterContent" 
+						 ExpandControlID="FilterHeaderImage"
+						 CollapseControlID="FilterHeaderImage"
+						 Collapsed="True" 
+						 CollapsedImage="images/expand.jpg"
+						 ExpandedImage="images/collapse.jpg" />
+
+				</asp:Panel>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    
+    </asp:ContentPlaceHolder>
+</asp:Content>

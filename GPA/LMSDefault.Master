@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LMSDefault.Master.cs" Inherits="LMSDefault" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>iWAF</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <link href="Styles.css" rel="stylesheet" type="text/css"  />
+    <link href="PrintStyles.css" rel="stylesheet" type="text/css" media="print" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="icon" type="image/ico" href="favicon.ico" />
+    <script type="text/javascript" src="Jscript/Common.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<script language="javascript" type="text/javascript" >
+	var PrevElemObj;
+	function UpdateContent(url) {
+	    //window.parent.frames[0].location = url;
+	    document.getElementById("ContentIFrame").src = url;
+	}
+	function OpenWindow(url) {
+	    window.open(url, '_blank', 'width=1000px,height=1000px,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes', true);
+	    return false;
+	}
+
+	function TreeViewClicked() {
+		if (window.event.srcElement.id.length > 0) {
+			var ElemObj = document.getElementById(window.event.srcElement.id);
+			if (ElemObj.getAttribute("href") != null) {
+				var NoToggleNode = ElemObj.getAttribute("href").indexOf("TreeView_ToggleNode") == -1;
+				if ((PrevElemObj != null) && (NoToggleNode)) {
+					PrevElemObj.style.color = '#FFFFFF';
+				}
+				if (NoToggleNode) {
+					ElemObj.style.color = '#FFFF00';
+					PrevElemObj = ElemObj;
+				}
+			}
+		}
+	}
+</script>
+<body id="bodyMaster" runat="server">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+        <div id="divBrandingBar" runat="server">
+            <asp:Table ID="Table3" runat="server" Height="16" Width="100%" CellPadding="0" CellSpacing="0" BorderWidth="0">
+                <asp:TableRow>
+                    <asp:TableCell style="filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#222222', gradientType='1')" width="100%">
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <asp:Table ID="Table1" runat="server" Width="100%" CellPadding="0" CellSpacing="0" BorderWidth="0">
+                <asp:TableRow>
+                    <asp:TableCell ID="TableCell2" BackColor="#ffffff">
+                        <asp:HyperLink ID="hlExxonLogo" ImageUrl="~/Images/exxonmobil_WAK.gif" runat="server" NavigateUrl="~/Default.aspx" ToolTip="Home" />
+                    </asp:TableCell>
+                    <asp:TableCell style="filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FFFFFF', endColorStr='#5F6062', gradientType='1')" width="100%" VerticalAlign="Middle" HorizontalAlign="Center" />
+                    <asp:TableCell BackColor="#ffffff">
+                        <asp:Image ID="Image2" ImageUrl="~/Images/Invensys_small.JPG" runat="server" />
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+        </div>
+        <div id="MastheadHR"></div>
+        <div id="divnavColumn" class="navColumn" runat="server">
+			<asp:Panel ID="TreeHeader" runat="server" CssClass="TreeHeaderPanel">
+				<asp:Image ID="TreeHeaderImage" runat="server" ImageAlign="Middle" ImageUrl="~/Images/t_collapse.jpg" style="cursor:hand"/>
+			</asp:Panel>
+			<asp:Panel ID="TreeContent" runat="server" CssClass="TreeContentPanel">
+				<asp:Table ID="Table2" runat="server" CellPadding="0" CellSpacing="0" BorderWidth="0">
+                    <asp:TableRow>
+                        <asp:TableCell HorizontalAlign="Right">
+                            <asp:ImageButton runat="server" ID="ibEnglish" ImageAlign="Middle"
+                                ImageUrl="~/Images/US_sml.gif" CssClass="toolbarimage" ToolTip="toolTipUSFlag" onclick="ibEnglish_Click"></asp:ImageButton>
+                            <asp:ImageButton runat="server" ID="ibAlt" ImageAlign="Middle"
+                                ImageUrl="~/Images/Japan_sml.gif" CssClass="toolbarimage" ToolTip="toolTipAltFlag" onclick="ibAlt_Click"></asp:ImageButton>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+                <br />
+               <asp:TreeView
+					OnClick="javascript:TreeViewClicked()"
+                    ExpandImageUrl="~/Images/closed.gif"
+                    CollapseImageUrl="~/Images/open.gif"
+                    ID="TreeView1"
+                    NodeStyle-CssClass="treeNode"
+                    runat="server" 
+                    EnableViewState="False"
+                    ShowExpandCollapse="true">
+                </asp:TreeView>
+            </asp:Panel>
+			<cc1:CollapsiblePanelExtender
+			    ID="CollapsiblePanelExtender_Tree"
+			    runat="server" 
+                ImageControlID="TreeHeaderImage" 
+                TargetControlID="TreeContent" 
+                ExpandControlID="TreeHeader"
+                CollapseControlID="TreeHeader"
+                Collapsed="False" 
+                CollapsedImage="~/Images/t_expand.jpg"
+                ExpandedImage="~/Images/t_collapse.jpg"
+                ExpandDirection="Vertical" />
+        </div>
+        <div id="contentColumn" style="	float: right; 	height: 800px; width:80%">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <iframe id="ContentIFrame" frameborder="0" height="100%" width="100%" src="Home.aspx?pageID=Home"></iframe>
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

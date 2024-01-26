@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using LMS2.components;
+using System;
 using System.Data;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
-using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.IO;
-using LMS2.components;
 
 namespace GPA
 {
@@ -21,6 +10,7 @@ namespace GPA
     {
         protected override string UserIDDisplay { set { lbUserID.Text = value; } }
         protected override bool UserChangeTimer { get { return tmUserChangeTimer.Enabled; } set { tmUserChangeTimer.Enabled = value; } }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             DebugPanel.Visible = (Session["ShowPageDebugInfo"] != null) ? (Session["ShowPageDebugInfo"].ToString() == "1") : false;
@@ -34,25 +24,46 @@ namespace GPA
             //    BackButton.Visible = false;
             //}
 
-            //((LMSGridView)Master).FilteringEnabled = false;
+           ((LMSGridViewFilter)Master).FilteringEnabled = false;
             BackButton.Visible = false;
 
             if (CanEdit && DetailMode.StartsWith("E")) // Edit
             {
-                //FormView1.DefaultMode = FormViewMode.Edit;
-                //FormView1.ChangeMode(FormViewMode.Edit);
+                FormView1.DefaultMode = FormViewMode.Edit;
+                FormView1.ChangeMode(FormViewMode.Edit);
             }
             else if (CanInsert && DetailMode.StartsWith("I")) // Insert
             {
-                //FormView1.DefaultMode = FormViewMode.Insert;
-                //FormView1.ChangeMode(FormViewMode.Insert);
+                FormView1.DefaultMode = FormViewMode.Insert;
+                FormView1.ChangeMode(FormViewMode.Insert);
             }
 
             if (PageID == "WA22F1P1A" && CanEdit)
                 LabXferTable.Visible = true;
         }
 
-       
+        protected new void Page_PreRender(object sender, EventArgs e)
+        {
+            base.Page_PreRender(sender, e);
+
+            if (DebugPanel.Visible)
+            {
+                Debug_lPageID.Text = "PageID: " + PageID;
+                Debug_lUserID.Text = "UserID: " + UserID;
+                Debug_lPermissions.Text = "Permissions: " + PageSecurity.ToString();
+                Debug_lDatabaseName.Text = "DatabaseName: " + DatabaseName;
+                Debug_lServer.Text = "ServerName: " + ServerName;
+                Debug_lCulture.Text = "Browser Culture: " + Page.Culture;
+                Debug_lSessionCached.Text = (pageIDChanged) ? " New PageID on this call / postback - Session vars / translations reloaded" : " Postback to the same PageID - no Session vars or translations reloaded";
+                Debug_Gridview1.DataSource = (DataTable)Session["PageSessionVars"];
+                Debug_Gridview1.DataBind();
+
+                DataTable pageStrings = (DataTable)Session["PageStringTable"];
+                pageStrings.Merge((DataTable)Session["ColumnTranslations"]);
+                Debug_GridView2.DataSource = pageStrings;
+                Debug_GridView2.DataBind();
+            }
+        }
 
         protected void BackButtonClick(object sender, ImageClickEventArgs e)
         {

@@ -1,0 +1,417 @@
+﻿<public:property name='dragColor' />
+<public:property name='hitColor' />
+<public:property name='HasTopMostPager' />
+<public:attach event="oncontentready" onevent="init();" />
+
+<script>
+var tbody, headRow;
+var bDragMode = false;
+var objDragItem;
+var arrHitTest = new Array();
+var iArrayHit = false;
+var ColumnCount = null;
+var mustRefresh = false;
+var Cols;
+var HasColsQ=false;
+var x,y,el,pageW,pageH;  
+//
+// Init function.. Fills out variables with data
+// loaded with oncontentready.
+//
+function init() 
+{
+    var i;
+    
+	if (dragColor == null)
+		dragColor = "silver";
+	if (hitColor == null)
+		hitColor = "lightblue";
+			
+	// get TBODY - take the first TBODY for the table
+	tbody = element.tBodies(0);
+	if (!tbody) return;
+	
+  headRow = tbody.rows[0];
+  if (headRow.tagName != "TR") return;
+
+  headRow.runtimeStyle.cursor = "hand"; //"move";
+ 
+  ColumnCount = headRow.children.length;
+  Cols = QString('Cols');
+  
+  if (Cols!=""){
+    HasColsQ=true;  
+  }
+  
+  for(i=0; i < ColumnCount ; i++)
+  {
+    arrHitTest[i] = new Array();
+    if (HasColsQ==false){
+     if (Cols==""){
+        Cols="0";
+     }else{
+        Cols += "," + i;
+     }
+    }
+  }
+ 
+  var cx=0;
+  var cy=0;
+  var c;
+  defaultTitleColor = headRow.children[0].currentStyle.backgroundColor;	 
+
+  for (i=0; i<ColumnCount ; i++) {
+
+	var clickCell = headRow.children[i];
+	clickCell.selectIndex = i;
+	c = clickCell.offsetParent;
+
+
+	if (cx == 0 && cy == 0)
+	{
+		while (c.offsetParent != null) {
+                  cy += c.offsetTop;
+                  cx += c.offsetLeft;
+                  c = c.offsetParent;
+		}
+	}
+
+	arrHitTest[i][0] = cx + clickCell.offsetLeft;
+	arrHitTest[i][1] = cy + clickCell.offsetTop;
+	arrHitTest[i][2] = clickCell;
+	arrHitTest[i][3] = cx + clickCell.offsetLeft + clickCell.clientWidth;
+
+	clickCell.attachEvent("onmousedown",onMouseDown);
+  } 
+
+  element.document.attachEvent("onmousemove",onMouseMove);
+  element.document.attachEvent("onmouseup",onMouseUp);
+   
+  if (arrHitTest[0][0] == arrHitTest[0][3])
+	mustRefresh = true;
+}
+
+
+function InitHeader()
+{
+  var cx=0;
+  var cy=0;
+  var c;
+	 
+  for (i=0; i<ColumnCount ; i++) {
+
+	var clickCell = headRow.children[i];
+	clickCell.selectIndex = i;
+	c = clickCell.offsetParent;
+
+	if(cx == 0 && cy == 0 )
+	{
+		while (c.offsetParent != null) {
+                  cy += c.offsetTop;
+                  cx += c.offsetLeft;
+                  c = c.offsetParent;
+		}
+	}
+
+	arrHitTest[i][0] = cx + clickCell.offsetLeft;
+	arrHitTest[i][1] = cy + clickCell.offsetTop;
+	arrHitTest[i][2] = clickCell;
+	arrHitTest[i][3] = cx + clickCell.offsetLeft + clickCell.clientWidth;
+
+  } 
+}
+
+
+function ChangeHeader(iChange)
+{
+	for(var y = 0; y < arrHitTest.length; y++)
+	{
+	if (arrHitTest[y][2].currentStyle.backgroundColor == hitColor)
+		arrHitTest[y][2].style.backgroundColor = defaultTitleColor;
+	}
+
+	if(iChange == "-1") return; 
+
+	arrHitTest[iChange][2].style.backgroundColor = hitColor;
+}
+
+function onMouseUp(e)
+{
+	if(!bDragMode)	return;
+	bDragMode = false;
+
+	var iSelected = objDragItem.selectIndex;
+	
+	objDragItem.removeNode(true);
+	objDragItem = null;
+
+	ChangeHeader(-1);
+
+	if( (iArrayHit - 1) < 0 || iSelected < 0) return;	// default faliure
+
+	// iSelected is the 0-based index of the column being moved
+	// (iArrayHit-1) is the 0-based index of the column being replaced
+	CopyRow(iSelected, (iArrayHit - 1) );
+
+	// Reset our variables
+	iSelected = 0;
+	iArrayHit = -1;
+}
+
+function onMouseDown(e)
+{
+	// If the grid is contained in an invisible panel (other DHTML stuff)
+	// the initialization step must be repeated to take real values
+	if( mustRefresh)	{
+		InitHeader();
+		mustRefresh = false;
+	}
+
+	bDragMode 	= true;
+	var src 	= e.srcElement;
+	var c 	= e.srcElement;
+
+	while ((src.tagName != "TD") && (src.tagName != "TH")) 
+		src = src.parentElement;
+	
+	// Create our header on the fly
+	objDragItem = document.createElement("DIV");
+	objDragItem.innerHTML		= src.innerHTML;
+	objDragItem.style.height	= src.offsetParent.clientHeight; 
+	objDragItem.style.width 	= src.clientWidth; 
+	objDragItem.style.background = dragColor; 
+	objDragItem.style.fontColor	= src.currentStyle.fontColor;
+	objDragItem.style.position 	= "absolute";
+	objDragItem.style.filter 	= "progid:DXImageTransform.Microsoft.Alpha(opacity=75)";
+	objDragItem.selectIndex		= src.selectIndex;
+	
+	while (c.offsetParent != null) 
+        {
+		objDragItem.style.y += c.offsetTop;
+		objDragItem.style.x += c.offsetLeft;
+		c = c.offsetParent;
+	}
+	
+	objDragItem.style.borderStyle	= "dashed";
+ 	objDragItem.style.borderWidth	= "1px";
+ 	objDragItem.style.display	= "none";
+
+	src.insertBefore(objDragItem);
+}
+
+function onMouseMove(e)
+{
+	if(!bDragMode || !objDragItem) return;	
+	
+	// If we aren't dragging or our object is null, we return
+
+	// Hardcoded value for height difference
+	var midWObj = objDragItem.style.posWidth / 2;
+	var midHObj = 12;
+
+	// Save mouse's position in the document
+     var intTop = e.clientY + element.document.body.scrollTop;
+     var intLeft = e.clientX + element.document.body.scrollLeft;
+
+
+	var cx=0,cy=0;
+	var elCurrent = objDragItem.offsetParent;
+	if (elCurrent != null)
+	{
+          while (elCurrent.offsetParent != null) {
+                  cx += elCurrent.offsetTop;
+                  cy += elCurrent.offsetLeft;
+                  elCurrent = elCurrent.offsetParent;
+          }
+ }
+
+      objDragItem.style.pixelTop  = intTop  - cx - midHObj;
+      objDragItem.style.pixelLeft = intLeft - cy - midWObj;
+
+
+	if(objDragItem.style.display == "none") 
+		objDragItem.style.display = "";
+
+	iArrayHit = CheckHit(intTop , intLeft , e);
+
+	e.cancelBubble = false;
+	e.returnValue = false;
+}
+
+function GetDataFieldFromHTML(oHTML){
+
+var tspl = oHTML.split('Sort$');
+return tspl[1].split('\'')[0];
+
+
+}
+
+function CheckHit(x,y,e)
+{
+	midWObj = objDragItem.style.posWidth / 2;
+	midHObj = 12;
+
+
+	for(var i=0; i < ColumnCount; i++)
+	{
+		if( (y) > (arrHitTest[i][0]) && (y) < (arrHitTest[i][3] )) 
+		{
+			ChangeHeader(i);
+			return i + 1;
+		}
+	}
+	return -1;
+}
+
+//
+// Copy from row to row.. Does the Header also.
+//
+function CopyRow(from, to)
+{	
+    var ColsArr = Cols.split(",");
+    var tmpfrom;
+    var tmpto;
+	if(from == to) return;
+
+
+	var origfrom = from;
+	var origto = to;
+	var iDiff = 0;
+
+	//Manipulate cols array to match users selection
+	tmpfrom = ColsArr[from];
+	tmpto = ColsArr[to];
+	
+	ColsArr.splice(from,1);
+	if (from < to ){
+	    ColsArr.splice(to-1,1,tmpto,tmpfrom);
+	}else{
+	    ColsArr.splice(to,1,tmpfrom,tmpto);		
+	}
+	location.replace(BuildQString(ColsArr));
+}
+
+function BuildQString(ColsArr) {
+
+    var Page="";
+    var Count="";
+    var SortOn="";
+    var SortDir="";
+    var Cols="";
+    var outs ="";
+    var FilterField="";
+    var Filter=""
+    var FilterDayCount="";
+    var FilterStartDay="";
+    var FilterMonth="";
+    var FilterYear="";
+    
+    Page = QString("Page");
+    Count = QString("Count");
+    SortOn = QString("SortOn");
+    SortDir = QString("SortDir");
+    Filter = QString("Filter");
+    
+    FilterDayCount = QString("FilterDayCount");
+    FilterStartDay = QString("FilterStartDay");
+    FilterMonth = QString("FilterMonth");
+    FilterYear = QString("FilterYear");
+    
+    // Always make sure 0 is the first one in the order if the first column is the select column
+    if (headRow.cells[0].innerText == "" || headRow.cells[0].innerText == " ")
+    {
+        arrReordered = new Array();
+        arrReordered[0] = 0;
+        var ZeroFound=false;
+        for(i=0; i < ColsArr.length ; i++)
+        {
+	        if (ColsArr[i]!=0)
+	        {
+	            if (ZeroFound)
+	            {
+		            arrReordered[i] = ColsArr[i];
+		        }
+		        else
+		        {
+		            arrReordered[i+1] = ColsArr[i];
+		        }
+	        }
+	        else
+	        {
+	            ZeroFound=true;
+            }
+        }
+        Cols = arrReordered.join(",");
+    }
+    else
+    {
+        Cols = ColsArr.join(",");
+    }
+    
+    if (Page!=""){
+       outs += "&Page=" + Page;
+    }
+    if (Count!=""){
+       outs += "&Count=" + Count;
+    }
+    if (SortOn!=""){
+       outs += "&SortOn=" + SortOn;
+    }
+    if (SortDir!=""){
+       outs += "&SortDir=" + SortDir;
+    }
+    if (Cols!=""){
+       outs += "&Cols=" + Cols;
+    }
+    if (Filter!=""){
+       outs += "&Filter=" + Filter;
+    }
+    if (FilterField!=""){
+       outs += "&FilterField=" + FilterField;
+    }
+    if (FilterDayCount!=""){ 
+        outs += "&FilterDayCount=" + FilterDayCount;
+    }  
+    if (FilterStartDay!=""){ 
+     outs += "&FilterStartDay=" + FilterStartDay;
+    }
+    if (FilterMonth!=""){ 
+     outs += "&FilterMonth=" + FilterMonth;
+    }
+    if (FilterYear!=""){  
+        outs += "&FilterYear=" + FilterYear;
+    }
+    return location.pathname + "?" +outs.slice(1,outs.length);
+}
+
+function QString(qsParam) {
+  nvString = "&" + location.search.substring(1, location.search.length) + "&"
+  paramBegin = nvString.indexOf("&" + qsParam + "=")
+  if (paramBegin != -1) {
+    valBegin = (paramBegin*-1-qsParam.length-2)*-1
+    qsVal = nvString.substring(valBegin, nvString.indexOf("&", valBegin))
+    if (qsVal != "") {return unescape(qsVal)}
+     else {return ""}
+  }
+  else {return ""}
+}
+
+function setSelectValue(Sel,Value)
+{
+
+var valopts;
+if(Value=='') {return;}
+
+valopts = Sel.options;
+
+for (i=0;i< Sel.length;i++){
+
+	if (valopts[i].value==Value){
+            valopts[i].selected = true;
+		    return;   
+	}
+	
+}	
+}
+</script>
+
